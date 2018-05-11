@@ -164,4 +164,4 @@ gulp.task('clean', () => {
 
 // env
 gulp.task('build', gulpSequence('clean', 'jade', 'sass', 'babel', 'vendorsCss', 'VendorJs', 'imageMin'))
-gulp.task('default', ['jade', 'sass', 'bower', 'babel', 'vendorsCss', 'VendorJs', 'moveImg', 'server', 'watch'])
+gulp.task('default', ['jade', 'sass', 'babel', 'vendorsCss', 'VendorJs', 'moveImg', 'server', 'watch'])
