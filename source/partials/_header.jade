@@ -1,0 +1,64 @@
+header#pageHeader.page-header
+  .navi-info
+    .container
+      ul.d-flex
+        li
+          .d-flex.flex-row
+            .cc-icon.align-self-center
+              i.icons.icon-envelope
+            .align-self-center
+              h3.h5.m-0 #{menus.mail}
+        li
+          .d-flex.flex-row
+            .cc-icon.align-self-center
+              i.icons.icon-phone
+            .align-self-center
+              h3.h5.m-0 #{menus.phone}    
+        li
+          .d-flex.flex-row
+            .cc-icon.align-self-center
+              i.icons.icon-location-pin
+            .align-self-center
+              h3.h5.m-0 #{menus.address}
+  .main-navi
+    .container
+      nav.navbar.navbar-expand-lg.d-flex.p-0
+        a.navbar-toggler(href='#menu', data-toggle="collapse", data-target='#menu', aria-controls='menu', aria-expanded='false', aria-label='Menu Trigger')
+          span.navbar-toggler-icon
+        h1.navbar-brand.mx-auto
+          a(href='index.html')
+            | EZ網銀行貸款專家
+        .collapse.navbar-collapse(id='')
+          ul.nav.navbar-nav.ml-auto
+            each item in menus.lists
+              //- 如果有次選單
+              if item.submenu
+                //- 判斷現在在哪個頁面設定 active
+                if (current == item.url)
+                  li.item.dropdown.active
+                    a.dropdown-toggle(href=item.url, data-toggle='dropdown', aria-haspopup='true', aria-expanded='false', data-hover='dropdown', data-delay='10')
+                      span.text #{item.name}
+                      b.caret
+                    ul.dropdown-menu.multi-level(role='menu')
+                      each subitem in item.submenu
+                        li 
+                          a(href=subitem.url) #{subitem.name}
+                else
+                  li.item.dropdown
+                    a.dropdown-toggle(href=item.url, data-toggle='dropdown', aria-haspopup='true', aria-expanded='false', data-hover='dropdown', data-delay='10')
+                      span.text #{item.name}
+                      b.caret
+                    ul.dropdown-menu.multi-level(role='menu')
+                      each subitem in item.submenu
+                        li 
+                          a(href=subitem.url) #{subitem.name}
+              else
+                if (current == item.url)
+                  li.item.active
+                    a(href=item.url)
+                      span.text #{item.name}
+                else
+                  li.item 
+                    a(href=item.url)
+                      span.text #{item.name}
+  

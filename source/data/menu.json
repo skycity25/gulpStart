@@ -1,0 +1,27 @@
+{
+  "lists": [
+    {
+      "name": "企業貸",
+      "url": "about.html"
+    },{
+      "name": "房屋貸",
+      "url": "product.html"
+    },{
+      "name": "信貸",
+      "url": "process.html"
+    },{
+      "name": "汽車貸",
+      "url": "process.html"
+    },{
+      "name": "債務整合",
+      "url": "process.html"
+    },{
+      "name": "線上申辦",
+      "url": "contact.html"
+    }
+  ],
+  "company": "EZ網銀行貸款專家",
+  "address": "108 臺北市萬華區漢中街131號9樓之3",
+  "phone": "0800-123123",
+  "mail": "contact@myezbank.com"
+}

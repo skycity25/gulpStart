@@ -1,0 +1,39 @@
+footer#footer-container
+  .footer-warp.py-5.d-none.d-sm-block.no-border-top
+    .container
+      .row
+        each item in menus.lists
+          if item.submenu
+            .col-sm-3
+              a(href=item.url)
+                h5 #{item.name}
+              ul
+                each subitem in item.submenu
+                  li
+                    a(href=subitem.url) #{subitem.name}
+        .col-sm-3
+          a(href=menus.lists.url)
+            h5 #{menus.name}
+          ul
+            li
+              i.icon-globe
+              span #{menus.company}
+            li
+              i.icon-location-pin
+              span #{menus.address}
+            li
+              i.icon-phone
+              span #{menus.phone}
+            li
+              i.icon-envelope
+              a(href='mailto:'+menus.mail, target='_blank')
+                span #{menus.mail}
+        
+  .copyright
+    // Container Starts
+    .container
+      p
+        | © 2017 
+        a(href='/') EZ網銀行貸款專家
+        | . All Rights Reserved.
+    // Container Ends

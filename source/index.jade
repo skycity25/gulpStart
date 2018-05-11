@@ -1,0 +1,22 @@
+extends _layout.jade
+
+block header
+  - var current = 'index.html' 
+  include partials/_header.jade
+
+block content
+  section.main-slider
+    .container-fluid
+      .row
+        .col-8
+          #heroBanner.banner-wrapper
+            .item
+              a(href='#')
+                img.w-100(src='images/home-hero-1.jpg', alt='')
+            .item
+              a(href='#')
+                img.w-100(src='images/home-hero-1.jpg', alt='')
+            .item
+              a(href='#')
+                img.w-100(src='images/home-hero-1.jpg', alt='')
+      

@@ -1,0 +1,32 @@
+nav#menu
+  ul.nav.navbar-nav.nav-main
+    each item in menus.lists
+      //- 如果有次選單
+      if item.submenu
+        //- 判斷現在在哪個頁面設定 active
+        if (current == item.url)
+          li.item.active
+            a(href=item.url)
+              span.text #{item.name}
+            ul.multi-level(role='menu')
+              each subitem in item.submenu
+                li 
+                  a(href=subitem.url) #{subitem.name}
+        else
+          li.item
+            a(href=item.url)
+              span.text #{item.name}
+              b.caret
+            ul.multi-level(role='menu')
+              each subitem in item.submenu
+                li 
+                  a(href=subitem.url) #{subitem.name}
+      else
+        if (current == item.url)
+          li.item.active
+            a(href=item.url)
+              span.text #{item.name}
+        else
+          li.item 
+            a(href=item.url)
+              span.text #{item.name}

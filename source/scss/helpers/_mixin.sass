@@ -1,0 +1,110 @@
+@mixin btn-center
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  margin: auto
+
+@mixin center($xy:xy)
+  @if $xy == xy
+    left: 50%
+    top: 50%
+    bottom: auto
+    right: auto
+    @include transform(translateX(-50%) translateY(-50%))
+  @else if $xy == x
+    left: 50%
+    right: auto
+    @include transform(translateX(-50%))
+  @else if $xy == y
+    top: 50%
+    bottom: auto
+    @include transform(translateY(-50%))
+  @else if $xy == no
+    position: static
+    @include transform(translate(0%))
+
+@mixin linear-gradient($deg, $from, $to)
+  background: $to
+  background: -moz-linear-gradient($deg, $from , $to)
+  background: -webkit-linear-gradient($deg, $from , $to)
+  background: -o-linear-gradient($deg, $from , $to)
+  background: linear-gradient($deg, $from , $to)
+  // filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=# $from, endColorstr=# $to)
+
+// generic transform
+@mixin transform($transforms)
+  -moz-transform: $transforms
+  -o-transform: $transforms
+  -ms-transform: $transforms
+  -webkit-transform: $transforms
+  transform: $transforms
+
+// rotate
+@mixin rotate($deg)
+  @include transform(rotate($deg))
+
+// scale
+@mixin scale($scale)
+  @include transform(scale($scale))
+
+// translate
+@mixin translate($x, $y)
+  @include transform(translate($x, $y))
+
+// skew
+@mixin skew($x, $y)
+  @include transform(skew($x, $y))
+
+//transform origin
+@mixin transform-origin ($origin)
+  -moz-transform-origin: $origin
+  -o-transform-origin: $origin
+  -ms-transform-origin: $origin
+  -webkit-transform-origin: $origin
+  transform-origin: $origin
+
+@mixin background-size($size)
+  -webkit-background-size: $size
+  -moz-background-size: $size
+  -o-background-size: $size
+  background-size: $size
+
+
+@mixin opacity($value)
+  $IEValue: $value*100
+  opacity: $value
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$IEValue+")"
+  filter: alpha(opacity=$IEValue)
+
+@mixin rem($sizeValue: 1.6)
+  font-size: ($sizeValue * 10) + px
+  font-size: $sizeValue + rem
+
+
+@mixin clearfix
+  *zoom: 1
+  &:before, &:after
+    content: ""
+    display: table
+    clear: both
+  &:after
+    clear: both
+
+@mixin font-size($size)
+  font-size: $size
+  font-size: ($size/16px)* 1rem
+
+
+/* This mixin can be used to set the object-fit: @include object-fit(contain);
+  or object-fit and object-position: @include object-fit(cover, top); */
+@mixin object-fit($fit: fill, $position: null)
+  -o-object-fit: $fit
+  object-fit: $fit
+  @if $position
+    -o-object-position: $position
+    object-position: $position
+    font-family: 'object-fit: #{$fit}; object-position: #{$position}'
+  @else
+    font-family: 'object-fit: #{$fit}'
