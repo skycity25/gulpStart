@@ -1,27 +1,101 @@
 {
   "lists": [
     {
-      "name": "企業貸",
-      "url": "about.html"
+      "name": "Company",
+      "url": "company.html",
+      "submenu": [
+        {
+          "name": "About",
+          "url": "about.html"
+        },{
+          "name": "Mission",
+          "url": "mission.html"
+        },{
+          "name": "Managment",
+          "url": "managment.html"
+        },{
+          "name": "History",
+          "url": "history.html"
+        }
+      ]
     },{
-      "name": "房屋貸",
-      "url": "product.html"
+      "name": "Business",
+      "url": "business.html",
+      "submenu": [
+        {
+          "name": "Influencer Marketing",
+          "url": "influencer.html"
+        },{
+          "name": "Media Production",
+          "url": "media.html"
+        },{
+          "name": "Business Solution",
+          "url": "solution.html"
+        }
+      ]
     },{
-      "name": "信貸",
-      "url": "process.html"
+      "name": "News",
+      "url": "news.html",
+      "submenu": [
+        {
+          "name": "Creator News",
+          "url": "creator-news.html"
+        },{
+          "name": "Company News",
+          "url": "company-news.html"
+        }
+      ]
     },{
-      "name": "汽車貸",
-      "url": "process.html"
+      "name": "Social Good",
+      "url": "socialgood.html",
+      "submenu": [
+        {
+          "name": "YouTube 頻道 ",
+          "url": "/"
+        },{
+          "name": "Instagram Corporate",
+          "url": "/"
+        },{
+          "name": "Instagram Life",
+          "url": "/"
+        },{
+          "name": "Facebook",
+          "url": "/"
+        }
+      ]
     },{
-      "name": "債務整合",
-      "url": "process.html"
+      "name": "Career",
+      "url": "career.html",
+      "submenu": [
+        {
+          "name": "Way",
+          "url": "way.html"
+        },{
+          "name": "Interview",
+          "url": "interview.html"
+        },{
+          "name": "Office",
+          "url": "office.html"
+        }
+      ]
     },{
-      "name": "線上申辦",
+      "name": "Contact",
       "url": "contact.html"
     }
   ],
-  "company": "EZ網銀行貸款專家",
-  "address": "108 臺北市萬華區漢中街131號9樓之3",
+  "meta": {
+    "title": "網頁標題",
+    "keyword": "網站關鍵字網站關鍵字",
+    "description": "網站描述",
+    "url": "https://liteshop.tw"
+  },
+  "social": {
+    "fb": "",
+    "tw": "",
+    "instagram": ""
+  },
+  "company": "Company",
+  "address": "Address",
   "phone": "0800-123123",
-  "mail": "contact@myezbank.com"
+  "mail": "contact@mail.com"
 }

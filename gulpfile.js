@@ -25,7 +25,7 @@ var envOptions = {
 const options = minimist(process.argv.slice(2), envOptions)
 console.log(options)
 
-gulp.task('jade', () => {
+gulp.task('jade', () =>{
   return gulp.src('./source/**/*.jade')
     .pipe($.plumber())
     .pipe($.data(function (file) {
@@ -44,7 +44,7 @@ gulp.task('jade', () => {
     })) // autoReload
 })
 
-gulp.task('sass', function () {
+gulp.task('sass', () => {
   var plugins = [
     autoprefixer({browsers: ['last 3 version']}) // 最新一版前綴
   ]
@@ -65,7 +65,7 @@ gulp.task('sass', function () {
     })) // autoReload
 })
 
-gulp.task('vendorsCss', function () {
+gulp.task('vendorsCss', () => {
   return gulp.src(['./vendors/reset.css', './vendors/*.css'])
     .pipe($.sourcemaps.init())
     .pipe($.concatCss('vendors.css'))
@@ -74,7 +74,7 @@ gulp.task('vendorsCss', function () {
     .pipe(gulp.dest('./public/css'))
 })
 
-gulp.task('imageMin', () =>
+gulp.task('imageMin', () =>{
   gulp.src('./source/images/*')
     .pipe($.if(options.env === 'production', $.imagemin([
       $.imagemin.gifsicle({interlaced: true}),
@@ -88,12 +88,17 @@ gulp.task('imageMin', () =>
       })]
     )))
     .pipe(gulp.dest('./public/images'))
-)
+})
 // 搬移 ./source/images 到 ./public/images
-gulp.task('moveImg', () =>
-  gulp.src('./source/images/*')
+gulp.task('disImages', () =>{
+  return gulp.src('./source/images/*')
     .pipe(gulp.dest('./public/images'))
-)
+})
+
+gulp.task('fonts', () =>{
+  return gulp.src('./source/fonts/*')
+    .pipe(gulp.dest('./public/fonts'))
+})
 
 gulp.task('watch', function () {
   gulp.watch(['./source/scss/**/*.sass', './source/scss/**/*.scss'], ['sass'])
@@ -164,4 +169,4 @@ gulp.task('clean', () => {
 
 // env
 gulp.task('build', gulpSequence('clean', 'jade', 'sass', 'babel', 'vendorsCss', 'VendorJs', 'imageMin'))
-gulp.task('default', ['jade', 'sass', 'babel', 'vendorsCss', 'VendorJs', 'moveImg', 'server', 'watch'])
+gulp.task('default', ['jade', 'sass', 'babel', 'vendorsCss', 'VendorJs', 'disImages', 'fonts', 'server', 'watch'])

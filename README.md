@@ -1,4 +1,4 @@
-# myezbank
+# Gulp start
 
 
 
@@ -13,7 +13,6 @@
 
 ```
 npm install
-bower install
 gulp
 ```
 
